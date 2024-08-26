@@ -18,5 +18,6 @@ public class largeTwo {
         } else {
             System.out.println("INVALID! please try again");
         }
+        sc.close();
     }
 }

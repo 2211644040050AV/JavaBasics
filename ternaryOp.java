@@ -9,6 +9,7 @@ public class ternaryOp {
 
         String str = (number % 2 == 0) ? "Even" : "Odd";
         System.out.println(str);
+        sc.close();
     }
 
 }

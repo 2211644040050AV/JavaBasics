@@ -11,5 +11,6 @@ public class circleArea {
         double area = Math.PI * Math.pow(r, 2);
 
         System.out.println(area);
+        sc.close();
     }
 }

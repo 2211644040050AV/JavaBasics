@@ -23,5 +23,6 @@ public class reverseNumber {
             num /= 10;
         }
         System.out.println(rev);
+        sc.close();
     }
 }

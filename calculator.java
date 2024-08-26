@@ -43,5 +43,6 @@ public class calculator {
                 System.out.println("Invalid choice! please try again");
                 break;
         }
+        sc.close();
     }
 }

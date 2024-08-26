@@ -16,5 +16,6 @@ public class characterPattern {
             }
             System.out.println();
         }
+        sc.close();
     }
 }

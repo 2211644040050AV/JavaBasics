@@ -15,6 +15,7 @@ public class sum {
         int sum = a + b;
 
         System.out.print("Sum = " + sum);
+        sc.close();
     }
 
 }

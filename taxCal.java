@@ -20,5 +20,6 @@ public class taxCal {
             tax = (int) (income * 0.3);
             System.out.println("Tax : " + tax);
         }
+        sc.close();
     }
 }
