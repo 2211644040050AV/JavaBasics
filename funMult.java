@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class funSub {
+public class funMult {
 
-    public static int sub(int a, int b) {
+    public static int mult(int a, int b) {
 
-        return a - b;
+        return a * b;
     }
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class funSub {
         System.out.print("Enter the value of b : ");
         int y = sc.nextInt();
 
-        System.out.println("Substract = " + sub(x, y));
+        System.out.println("Multiplication = " + mult(x, y));
 
         sc.close();
     }
