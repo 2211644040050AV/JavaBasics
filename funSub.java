@@ -2,9 +2,9 @@ import java.util.*;
 
 public class funSub {
 
-    public static int sub(int a, int b) {
+    public static int sub(int a, int b, int c) {
 
-        return a - b;
+        return a - b - c;
     }
 
     public static void main(String[] args) {
@@ -17,7 +17,10 @@ public class funSub {
         System.out.print("Enter the value of b : ");
         int y = sc.nextInt();
 
-        System.out.println("Substract = " + sub(x, y));
+        System.out.print("Enter the value of c : ");
+        int z = sc.nextInt();
+
+        System.out.println("Substract = " + sub(x, y, z));
 
         sc.close();
     }
