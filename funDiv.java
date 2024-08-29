@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class finDiv {
+public class funDiv {
 
     public static int div(int a, int b) {
 
