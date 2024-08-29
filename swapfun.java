@@ -7,8 +7,8 @@ public class swapfun {
         n2 = n1 - n2;
         n1 = n1 - n2;
 
-        System.out.println("Your first number after swaping : " + n1);
-        System.out.println("Your first number after swaping : " + n2);
+        System.out.println("Your first number after swapping : " + n1);
+        System.out.println("Your first number after swapping : " + n2);
     }
 
     public static void main(String[] args) {
