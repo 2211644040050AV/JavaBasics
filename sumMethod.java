@@ -1,7 +1,13 @@
 import java.util.*;
 
 public class sumMethod {
+    // method to calculate two integer sum
     public static int sum(int n1, int n2) {
+        return n1 + n2;
+    }
+
+    // method to calculate two float sum
+    public static float sum(float n1, float n2) {
         return n1 + n2;
     }
 
@@ -21,6 +27,8 @@ public class sumMethod {
 
         // output of addition of two numbers
         System.out.println("Sum of first two numbers : " + sum(n1, n2));
+        // output of addition of two float numbers
+        System.out.println("Sum of two float numbers : " + sum(15.6f, 4.2f));
         // output of addition of three numbers
         System.out.println("Sum of three number : " + sum(n1, n2, n3));
 
