@@ -35,9 +35,9 @@ public class primeFunction {
         System.out.println("Enter the integer number : ");
         int num = sc.nextInt();
 
-        // System.out.println(isPrime(num));
+        System.out.println(isPrime(num));
 
-        primeRange(20); // 2 to 20
+        primeRange(100); // 2 to 100
 
         sc.close();
     }
