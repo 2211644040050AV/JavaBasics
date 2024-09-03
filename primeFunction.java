@@ -19,13 +19,25 @@ public class primeFunction {
         return true;
     }
 
+    // print prime numbers in reange
+    public static void primeRange(int num) {
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the integer number : ");
         int num = sc.nextInt();
 
-        System.out.println(isPrime(num));
+        // System.out.println(isPrime(num));
+
+        primeRange(20); // 2 to 20
 
         sc.close();
     }
