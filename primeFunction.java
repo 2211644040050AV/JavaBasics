@@ -3,23 +3,26 @@ import java.util.*;
 public class primeFunction {
 
     public static boolean isPrime(int num) {
-        // only for n>=2
-        // corner case
-        // 2
+        // Corner case: numbers less than 2 are not prime
+        if (num < 2) {
+            return false;
+        }
+
+        // Special case for 2 (which is prime)
         if (num == 2) {
             return true;
         }
 
-        boolean isPrime = true;
-        for (int i = 2; i <= num - 1; i++) {
-            if (num % i == 0) { // completely divide
+        // Check for prime from 2 to sqrt(num)
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) { // completely divides
                 return false;
             }
         }
         return true;
     }
 
-    // print prime numbers in reange
+    // Print prime numbers in a range
     public static void primeRange(int num) {
         for (int i = 2; i <= num; i++) {
             if (isPrime(i)) {
@@ -32,12 +35,12 @@ public class primeFunction {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the integer number : ");
+        System.out.println("Enter an integer number: ");
         int num = sc.nextInt();
 
         System.out.println(isPrime(num));
 
-        primeRange(100); // 2 to 100
+        primeRange(100); // Prints prime numbers from 2 to 100
 
         sc.close();
     }
