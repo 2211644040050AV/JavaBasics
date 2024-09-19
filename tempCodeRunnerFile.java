@@ -1,1 +1,1 @@
-(2 * i) - 1
+Scanner sc = new Scanner(System.in);

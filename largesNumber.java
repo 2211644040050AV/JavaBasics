@@ -1,4 +1,4 @@
-// find the largest number in a given array
+// find the largest and smallest number in a given array
 public interface largesNumber {
     public static int large_Number(int number[]) {
         int largest = Integer.MIN_VALUE; // -infinity
