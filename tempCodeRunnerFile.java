@@ -1,1 +1,1 @@
-Scanner sc = new Scanner(System.in);
+Palindromic Pattern with Numbers
