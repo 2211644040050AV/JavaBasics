@@ -1,8 +1,9 @@
 public class OOP {
 
     public static void main(String[] args) {
-        // Student s1 = new Student("Ayush");
-        // System.out.println(s1.name);
+        Student s1 = new Student();
+        s1.schoolName = "WWP";
+        System.out.println(s1.schoolName);
 
         // Pen p1 = new Pen();
         // p1.setColor("Yellow");
@@ -22,10 +23,19 @@ class Student {
     String name;
     int roll;
 
-    Student(String name) {
+    static String schoolName;
+
+    // Student(String name) {
+    // this.name = name;
+    // }
+
+    void setName(String name) {
         this.name = name;
     }
 
+    String getName() {
+        return this.name;
+    }
 }
 
 /**
