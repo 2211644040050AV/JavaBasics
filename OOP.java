@@ -20,10 +20,14 @@ public class OOP {
  */
 class Student {
 
+    static int returnPercentage(int math, int phy, int chem) {
+        return (math + phy + chem) / 3;
+    }
+
     String name;
     int roll;
 
-    static String schoolName;
+    static String schoolName; // static member - used to share the same variable or method of a class
 
     // Student(String name) {
     // this.name = name;
