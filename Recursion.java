@@ -2,6 +2,16 @@ import java.util.Scanner;
 
 public class Recursion {
 
+    public static void printDec(int n) {
+        if (n == 1) {
+            System.out.println(n);
+            return;
+        }
+        System.out.print(n + " ");
+        printDec(n - 1);
+        ;
+    }
+
     public static int factorial(int n) {
 
         if (n <= 1) {
@@ -12,14 +22,16 @@ public class Recursion {
     }
 
     public static void main(String[] args) {
+        int n = 10;
+        printDec(n);
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a number: ");
-        int number = scanner.nextInt();
+        // System.out.print("Enter a number: ");
+        // int number = scanner.nextInt();
 
-        int result = factorial(number);
+        // int result = factorial(number);
 
-        System.out.println("Factorial of " + number + " is: " + result);
+        // System.out.println("Factorial of " + number + " is: " + result);
 
         scanner.close();
     }
