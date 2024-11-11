@@ -38,10 +38,19 @@ public class Recursion {
         return n + sumOfNaturalNumbers(n - 1);
     }
 
+    // Fibonacci Number
+    public static int fibonacci(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
     public static void main(String[] args) {
-        int n = 5;
+        int n = 25;
         // printInc(n);
-        System.out.println(sumOfNaturalNumbers(n));
+        System.out.println(fibonacci(n));
         Scanner scanner = new Scanner(System.in);
 
         // System.out.print("Enter a number: ");
