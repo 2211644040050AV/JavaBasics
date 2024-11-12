@@ -47,10 +47,23 @@ public class Recursion {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
+    // Array Sorting
+    public static boolean isSortedArr(int arr[], int i) {
+        if (i == arr.length - 1) {
+            return true;
+        }
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+        return isSortedArr(arr, i + 1);
+    }
+
     public static void main(String[] args) {
         int n = 25;
         // printInc(n);
-        System.out.println(fibonacci(n));
+        // System.out.println(fibonacci(n));
+        int arr[] = { 1, 2, 3, 4 };// isSortedArr(arr, 0);
+        System.out.println(isSortedArr(arr, 0));
         Scanner scanner = new Scanner(System.in);
 
         // System.out.print("Enter a number: ");
