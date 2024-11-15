@@ -86,15 +86,25 @@ public class Recursion {
 
     }
 
+    // power of x ^ n
+    public static int powerOfN(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return x * powerOfN(x, n - 1);
+    }
+
     public static void main(String[] args) {
         int n = 25;
         // printInc(n);
         // System.out.println(fibonacci(n));
         // int arr[] = { 1, 2, 3, 4 };// isSortedArr(arr, 0);
         // System.out.println(isSortedArr(arr, 0));
-        int[] arr = { 5, 5, 5, 5 };
-        System.out.println(lastOccurance(arr, 5, 0));
-        Scanner scanner = new Scanner(System.in);
+        // int[] arr = { 5, 5, 5, 5 };
+        // System.out.println(lastOccurance(arr, 5, 0));
+        // Scanner scanner = new Scanner(System.in);
+
+        System.out.println(powerOfN(powerOfN(2, 10)));
 
         // System.out.print("Enter a number: ");
         // int number = scanner.nextInt();
