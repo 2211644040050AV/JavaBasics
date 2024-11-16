@@ -94,24 +94,44 @@ public class Recursion {
         return x * powerOfN(x, n - 1);
     }
 
+    // Print x ^ n in O(log n)
+    public static int optimizedPower(int a, int n) {
+        if (n == 0) { // base case
+            return 1;
+        }
+        // n is wvwn
+        int halfPower = optimizedPower(a, n / 2);
+        int halfPowerSqr = halfPower * halfPower;
+        // n is odd
+        if (n % 2 != 0) {
+            halfPowerSqr = a * halfPowerSqr;
+        }
+        return halfPowerSqr;
+    }
+
     public static void main(String[] args) {
-        int n = 25;
+        // int n = 25;
         // printInc(n);
         // System.out.println(fibonacci(n));
         // int arr[] = { 1, 2, 3, 4 };// isSortedArr(arr, 0);
         // System.out.println(isSortedArr(arr, 0));
         // int[] arr = { 5, 5, 5, 5 };
         // System.out.println(lastOccurance(arr, 5, 0));
-        // Scanner scanner = new Scanner(System.in);
 
-        System.out.println(powerOfN(powerOfN(2, 10)));
+        int a = 2;
+        int n = 10;
+        System.out.println(optimizedPower(a, n));
 
-        // System.out.print("Enter a number: ");
-        // int number = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
 
-        // int result = factorial(number);
+        // System.out.println(powerOfN(2, 10));
 
-        // System.out.println("Factorial of " + number + " is: " + result);
+        // // System.out.print("Enter a number: ");
+        // // int number = scanner.nextInt();
+
+        // // int result = factorial(number);
+
+        // // System.out.println("Factorial of " + number + " is: " + result);
 
         scanner.close();
     }
