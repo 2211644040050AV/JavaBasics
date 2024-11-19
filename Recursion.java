@@ -147,6 +147,35 @@ public class Recursion {
         }
     }
 
+    // Friends Pairing Problem -
+    /*
+     * Given friends, each one can remain single or can be paired up with some other
+     * friend. Each friends pairs can be only once. Find out the total number of
+     * ways in which friend can remain single or can be paired up.
+     */
+    public static int friendsPairing(int n) {
+
+        if (n == 1 || n == 2) {
+            return n;
+        }
+
+        // choice
+
+        // single
+        int fnm1 = friendsPairing(n - 1);
+
+        // pair
+        int fnm2 = friendsPairing(n - 2);
+        int pairWays = (n - 1) * fnm2;
+
+        // totalWays
+        int totalWays = fnm1 + pairWays;
+        return totalWays;
+
+        // direct way -
+        // return friendsPairing(n - 1) + (n - 1) * friendsPairing(n - 2);
+    }
+
     public static void main(String[] args) {
         // int n = 25;
         // printInc(n);
@@ -160,8 +189,10 @@ public class Recursion {
         // int n = 10;
         // System.out.println(optimizedPower(a, n));
 
-        String str = "babu";
-        removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
+        // String str = "babu";
+        // removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
+
+        System.out.println(friendsPairing(3));
 
         // System.out.println(tilingProblem(4));
 
