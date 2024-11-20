@@ -176,6 +176,23 @@ public class Recursion {
         // return friendsPairing(n - 1) + (n - 1) * friendsPairing(n - 2);
     }
 
+    /*
+     * Binary String Problem - Print all binary strings of length/size N without
+     * consecutive ones.
+     */
+    public static void printBinString(int n, int lastPlace, String str) {
+        // base case
+        if (n == 0) {
+            System.out.println(str);
+            return;
+        }
+
+        printBinString(n - 1, 0, str + "0");
+        if (lastPlace == 0) {
+            printBinString(n - 1, 1, str + "1");
+        }
+    }
+
     public static void main(String[] args) {
         // int n = 25;
         // printInc(n);
@@ -192,7 +209,9 @@ public class Recursion {
         // String str = "babu";
         // removeDuplicates(str, 0, new StringBuilder(""), new boolean[26]);
 
-        System.out.println(friendsPairing(3));
+        printBinString(3, 0, "");
+
+        // System.out.println(friendsPairing(3));
 
         // System.out.println(tilingProblem(4));
 
