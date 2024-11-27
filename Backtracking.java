@@ -57,13 +57,105 @@ public class Backtracking {
          */
     }
 
+    /* Sudoku - Write a Function to complete a Sudoku. */
+
+    // Calculating Grid
+    public static boolean isSafe(int sudko[][], int row, int col, int digit) {
+        // column
+        for (int i = 0; i <= 8; i++) {
+            if (sudko[i][col] == digit) {
+                return false;
+            }
+        }
+
+        // row
+        for (int j = 0; j <= 8; j++) {
+            if (sudko[row][j] == digit) {
+                return false;
+            }
+        }
+
+        // grid
+        int sr = (row / 3) * 3;
+        int sc = (col / 3) * 3;
+
+        // raversing in row and col of 3 * 3 grid
+        for (int i = sr; i < sr + 3; i++) {
+            for (int j = sc; j < sc + 3; j++) {
+                if (sudko[i][j] == digit) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean SudokuSolver(int sudko[][], int row, int col) {
+        // base case
+        if (row == 9 && col == 0) {
+            return true;
+        }
+
+        // recusion
+        int nextRow = row, nextCol = col + 1;
+        if (col + 1 == 9) {
+            nextRow = row + 1;
+            nextCol = 0;
+        }
+
+        // already ste elements
+        if (sudko[row][col] != 0) {
+            return SudokuSolver(sudko, nextRow, nextCol);
+        }
+
+        // placing elements in new cells
+        for (int digit = 1; digit <= 9; digit++) {
+            if (isSafe(sudko, row, col, digit)) {
+                sudko[row][col] = digit;
+                if (SudokuSolver(sudko, nextRow, nextCol)) { // solution exits
+                    return true;
+                }
+                sudko[row][col] = 0;
+            }
+        }
+        return false;
+    }
+
+    public static void printSudoko(int sudko[][]) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(sudko[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // String str = "abc";
         // findSubsets(str, "", 0);
         // findPermutation(str, "");
 
-        int n = 3, m = 3;
-        System.out.println(gridWays(0, 0, n, m));
+        // int n = 3, m = 3;
+        // System.out.println(gridWays(0, 0, n, m));
+
+        int sudko[][] = { { 0, 0, 8, 0, 0, 0, 0, 0, 0 },
+                { 4, 9, 0, 1, 5, 7, 0, 0, 2 },
+                { 0, 0, 3, 0, 0, 4, 1, 9, 0 },
+                { 1, 8, 5, 0, 6, 0, 0, 2, 0 },
+                { 0, 0, 0, 0, 2, 0, 0, 6, 0 },
+                { 9, 6, 0, 4, 0, 5, 3, 0, 0 },
+                { 0, 3, 0, 0, 7, 2, 0, 0, 4 },
+                { 0, 4, 9, 0, 3, 0, 0, 5, 7 },
+                { 8, 2, 7, 0, 0, 9, 0, 1, 3 } };
+
+        if (SudokuSolver(sudko, 0, 0)) {
+            System.out.println("Solution exits");
+            printSudoko(sudko);
+        } else {
+            System.out.println("Solution does not exits");
+        }
+
     }
 
 }
