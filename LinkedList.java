@@ -24,11 +24,28 @@ public class LinkedList {
             return;
         }
 
-        // Step 2 - newNode next = head
+        // Step 2 - newNode.next = head
         newNode.next = head;
 
         // Step 3 - head = newNode
         head = newNode;
+    }
+
+    // Add first
+    public void addLast(int data) {
+        // step1 - create new node
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        // Step 2 - tail.next = head
+        tail.next = newNode;
+
+        // Step 3 - tail = newNode
+        tail = newNode;
     }
 
     // Print the LinkedList
@@ -43,8 +60,8 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);
+        ll.addLast(4);
+        ll.addLast(3);
         ll.printList();
     }
 }
