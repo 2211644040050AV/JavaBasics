@@ -31,7 +31,7 @@ public class LinkedList {
         head = newNode;
     }
 
-    // Add first
+    // Add last
     public void addLast(int data) {
         // step1 - create new node
         Node newNode = new Node(data);
@@ -48,6 +48,26 @@ public class LinkedList {
         tail = newNode;
     }
 
+    // Add middle
+    public void addMiddle(int idx, int data) {
+        if (idx == 0) {
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i = 0;
+
+        while (i < idx - 1) {
+            temp = temp.next;
+            i++;
+        }
+
+        // i = idx - 1; temp -> previous
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     // Print the LinkedList
     public void printList() {
         Node temp = head;
@@ -60,8 +80,11 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addLast(4);
+        ll.addFirst(1);
+        ll.addFirst(2);
         ll.addLast(3);
+        ll.addLast(4);
+        ll.addMiddle(2, 9);
         ll.printList();
     }
 }
