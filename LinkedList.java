@@ -11,13 +11,15 @@ public class LinkedList {
     }
 
     // LinkedList class members
-    private Node head;
-    private Node tail;
+    public Node head;
+    public Node tail;
+    public static int size;
 
     // Add first
     public void addFirst(int data) {
         // Step 1 - create new node
         Node newNode = new Node(data);
+        size++;
 
         if (head == null) {
             head = tail = newNode;
@@ -35,6 +37,7 @@ public class LinkedList {
     public void addLast(int data) {
         // step1 - create new node
         Node newNode = new Node(data);
+        size++;
 
         if (head == null) {
             head = tail = newNode;
@@ -55,6 +58,7 @@ public class LinkedList {
             return;
         }
         Node newNode = new Node(data);
+        size++;
         Node temp = head;
         int i = 0;
 
@@ -86,5 +90,6 @@ public class LinkedList {
         ll.addLast(4);
         ll.addMiddle(2, 9);
         ll.printList();
+        System.out.println(ll.size);
     }
 }
