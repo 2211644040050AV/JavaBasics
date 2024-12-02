@@ -82,14 +82,34 @@ public class LinkedList {
         System.out.println("null");
     }
 
+    // remove first
+    public int removeFirst() {
+        if (size == 0) {
+            System.out.println("Linked list is empty");
+            return Integer.MIN_VALUE;
+        } else if (size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(1);
         ll.addFirst(2);
-        ll.addLast(3);
+        ll.addFirst(1);
         ll.addLast(4);
-        ll.addMiddle(2, 9);
+        ll.addLast(5);
+        ll.addMiddle(2, 3);
         ll.printList();
-        System.out.println(ll.size);
+        ll.removeFirst();
+        ll.printList();
+
+        System.out.println(ll.size); // prins the size of the linked list
     }
 }
