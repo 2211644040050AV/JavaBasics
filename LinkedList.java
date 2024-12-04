@@ -121,6 +121,24 @@ public class LinkedList {
         return val;
     }
 
+    /*
+     * Search (Iterative) - Search for a key in a linked list . Return the position
+     * where it is found . If it is not found , return -1
+     */
+    public int itrSearch(int key) {
+        Node temp = head;
+        int idx = 0;
+        while (temp != null) {
+            if (temp.data == key) {
+                return idx;
+            }
+            temp = temp.next;
+            idx++;
+        }
+        // key not found
+        return -1;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
@@ -128,10 +146,13 @@ public class LinkedList {
         ll.addLast(4);
         ll.addLast(5);
         ll.addMiddle(2, 3);
-        ll.printList();
-        ll.removeLast();
+        // ll.printList();
+        // ll.removeLast();
         ll.printList();
 
-        System.out.println(ll.size); // prins the size of the linked list
+        System.out.println("Size of linked list : " + ll.size); // prins the size of the linked list
+
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(10));
     }
 }
