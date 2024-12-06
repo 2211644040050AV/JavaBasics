@@ -99,6 +99,7 @@ public class LinkedList {
         return val;
     }
 
+    // remove last
     public int removeLast() {
         if (size == 0) {
             System.out.println("Linked list is empty");
@@ -139,6 +140,29 @@ public class LinkedList {
         return -1;
     }
 
+    /*
+     * Search (Search) - for a key in a Linked List. Return the position where it is
+     * found. If not found, return -1, Use Recursion \.
+     */
+    public int helper(Node head, int key) {
+        if (head == null) {
+            return -1;
+        }
+
+        if (head.data == key) {
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if (idx == -1) {
+            return -1;
+        }
+        return idx + 1;
+    }
+
+    public int recSearch(int key) {
+        return helper(head, key);
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
@@ -150,9 +174,13 @@ public class LinkedList {
         // ll.removeLast();
         ll.printList();
 
-        System.out.println("Size of linked list : " + ll.size); // prins the size of the linked list
+        // System.out.println("Size of linked list : " + ll.size); // prins the size of
+        // the linked list
 
-        System.out.println(ll.itrSearch(3));
-        System.out.println(ll.itrSearch(10));
+        // System.out.println(ll.itrSearch(3));
+        // System.out.println(ll.itrSearch(10));
+
+        System.out.println(ll.recSearch(3));
+        System.out.println(ll.recSearch(10));
     }
 }
