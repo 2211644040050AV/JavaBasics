@@ -163,6 +163,21 @@ public class LinkedList {
         return helper(head, key);
     }
 
+    // Reverse a Linked List (Iterative Approach)
+    public void reversedLinkedList() {
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
@@ -180,7 +195,10 @@ public class LinkedList {
         // System.out.println(ll.itrSearch(3));
         // System.out.println(ll.itrSearch(10));
 
-        System.out.println(ll.recSearch(3));
-        System.out.println(ll.recSearch(10));
+        // System.out.println(ll.recSearch(3));
+        // System.out.println(ll.recSearch(10));
+
+        ll.reversedLinkedList();
+        ll.printList();
     }
 }
