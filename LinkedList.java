@@ -11,7 +11,7 @@ public class LinkedList {
     }
 
     // LinkedList class members
-    public Node head;
+    public static Node head;
     public Node tail;
     public static int size;
 
@@ -219,7 +219,7 @@ public class LinkedList {
         return slow; // slow is my midNode
     }
 
-    public boolean checkPalindrome () {
+    public boolean checkPalindrome() {
         if (head == null || head != null) {
             return true;
         }
@@ -251,15 +251,30 @@ public class LinkedList {
         return true;
     }
 
+    // Detect a Loop/Cycle in a Linked List - Floyd's Cycle Finding Algorithm)
+    public static boolean isCycle() {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // + 1
+            fast = fast.next.next; // + 2
+            if (slow == fast) {
+                return true; // Cycle Exists
+            }
+        }
+        return false; // Cycle doesn't exist
+    }
+
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
+        // LinkedList ll = new LinkedList();
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(1);
         // ll.printList();
         // ll.removeLast();
-        ll.printList();
+        // ll.printList();
 
         // System.out.println("Size of linked list : " + ll.size); // prins the size of
         // the linked list
@@ -274,6 +289,14 @@ public class LinkedList {
 
         // ll.removeNthNodeFromEnd(3);
 
-        System.out.println(ll.checkPalindrome());
+        // System.out.println(ll.checkPalindrome());
+
+        head = new Node(1);
+        head.next = new Node(1);
+        head.next.next = new Node(1);
+        head.next.next.next = head;
+
+        System.out.println(isCycle());
+
     }
 }
