@@ -96,6 +96,48 @@ public class CollectionFramework {
         System.out.println("null");
     }
 
+    // Zig - Zag Linked List
+    public void zigZag() {
+        // find mid
+        Node slow = head;
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+
+        // reverse 2nd half
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+        Node nextL, nextR;
+
+        // alternate merge / zig - zag merge
+        while (left != null && right != null) {
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            left = nextL;
+            right = nextR;
+
+        }
+    }
+
     public static void main(String[] args) {
         CollectionFramework list = new CollectionFramework();
 
@@ -107,13 +149,16 @@ public class CollectionFramework {
         list.addLast(8);
         list.addLast(9);
 
-        System.out.println("Original List:");
-        list.printList();
+        // System.out.println("Original List:");
+        // list.printList();
 
         // Perform merge sort
-        list.head = list.mergeSortLL(list.head);
+        // list.head = list.mergeSortLL(list.head);
 
-        System.out.println("Sorted List:");
+        // System.out.println("Sorted List:");
         list.printList();
+        list.zigZag();
+        list.printList();
+
     }
 }
