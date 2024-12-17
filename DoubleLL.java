@@ -29,11 +29,27 @@ public class DoubleLL {
         head = newNode;
     }
 
+    // Remove a node at the last
+    public void removeLast() {
+        if (head == null) { // Case 1: The list is empty
+            return;
+        }
+        if (head == tail) { // Case 2: Only one element in the list
+            head = tail = null;
+            size--;
+            return;
+        }
+        // Case 3: More than one element in the list
+        tail = tail.prev;
+        tail.next = null;
+        size--;
+    }
+
     // Print the list
     public void print() {
         Node temp = head;
         while (temp != null) {
-            System.out.print(temp.data + "<->");
+            System.out.print(temp.data + " <-> ");
             temp = temp.next;
         }
         System.out.println("null");
@@ -48,6 +64,9 @@ public class DoubleLL {
         dll.addFirst(1);
 
         // Print the list
+        dll.print();
+
+        dll.removeLast();
         dll.print();
 
         // Print the size of the list
