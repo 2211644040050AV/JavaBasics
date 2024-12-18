@@ -55,6 +55,22 @@ public class DoubleLL {
         System.out.println("null");
     }
 
+    // Reverse a doubly Linked List
+    public void Reverse() {
+        Node curr = head;
+        Node prev = null;
+
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+            prev = curr;
+            curr = next;
+        }
+        tail = head;
+        head = prev;
+    }
+
     public static void main(String[] args) {
         DoubleLL dll = new DoubleLL();
 
@@ -64,9 +80,11 @@ public class DoubleLL {
         dll.addFirst(1);
 
         // Print the list
-        dll.print();
+        // dll.print();
 
-        dll.removeLast();
+        // dll.removeLast();
+        dll.print();
+        dll.Reverse();
         dll.print();
 
         // Print the size of the list
